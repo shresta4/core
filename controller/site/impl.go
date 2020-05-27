@@ -250,7 +250,7 @@ func (controller *SiteController) ResumeUpload(ctx *context.Context) error {
 }
 
 func (controller *SiteController) UserManager(ctx *context.Context) error {
-	users, err := controller.svc.User.GetUsers()
+	users, err := controller.svc.User.GetFilteredUsers(ctx.QueryParams())
 	if err != nil {
 		return ctx.RenderError(
 			http.StatusBadRequest,
