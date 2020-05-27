@@ -80,7 +80,7 @@ committees:
       - role: Director of Outreach
         username: raghav3
         displayName: Raghav Saini
-        email: 
+        email: ''
 sigs:
   - name: Gamebuilders
     description: Anything and everything related to game development
