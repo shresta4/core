@@ -1,0 +1,38 @@
+{{define "userfilterform"}}
+
+<form id="user-filter-form">
+    <h4>
+        Filter
+        <a class="clear-form" href="?"><i class="fa fa-times-circle"></i> Clear</a>
+    </h4>
+
+    <select name="mark">
+        <option disabled selected hidden value="">Mark</option>
+        {{range .Marks}}
+            <option value='{{.}}'>{{.}}</option>
+        {{end}}
+    </select>
+
+    <button class="button" type="submit">Submit</button>
+</form>
+
+<script>
+    window.addEventListener("load", () => {
+        // set the initial value for each filter based on the current query parameters
+        const url = new URL(location.href);
+        url.searchParams.forEach((value, key) => {
+            $(`#user-filter-form [name=${key}]`).val(value);
+        });
+
+        // on form submit, remove 'name' for all blank fields to prevent them from being sent in the request
+        document.getElementById('user-filter-form').addEventListener('submit', e => {
+            $(e.target).find('[name]').each((_, inputElement) => {
+                if ($(inputElement).val() === "") {
+                    $(inputElement).attr('name', '');
+                }
+            });
+        });
+    });
+</script>
+
+{{end}}
