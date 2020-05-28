@@ -1,13 +1,13 @@
 {{define "resumebook"}}
 {{template "header" .}}
 
-<div id="resume-container">
+<div id="filter-container">
     <div class="row">
         <h2>ACM@UIUC Resume Book</h2>
-        <div id="resume-table-container">
+        <div id="filter-table-container">
             {{template "resumefilterform" .ResumeOptions}}
 
-            <table id="resume-table" class="dynatable-container">
+            <table id="filter-table" class="dynatable-container">
                 <thead>
                 <tr>
                     <th>Name </th>
