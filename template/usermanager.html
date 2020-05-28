@@ -7,9 +7,9 @@
 			<div id="unapproved-users-partial">
                 {{if not (eq (len .Users) 0)}}
                     <h2>Members</h2>
-                    <div id="resume-table-container">
+                    <div id="filter-table-container">
                         {{template "userfilterform" .MarkOptions}}
-                        <table class="table table-striped" id="user-approval-table" class="dynatable-container">
+                        <table class="table table-striped" id="filter-table" class="dynatable-container">
                             <thead>
                                 <tr>
                                     <th>Action</th>

@@ -1,6 +1,6 @@
 {{define "userfilterform"}}
 
-<form id="resume-filter-form">
+<form id="filter-form">
     <h4>
         Filter
         <a class="clear-form" href="?"><i class="fa fa-times-circle"></i> Clear</a>
@@ -23,11 +23,11 @@
         // set the initial value for each filter based on the current query parameters
         const url = new URL(location.href);
         url.searchParams.forEach((value, key) => {
-            $(`#resume-filter-form [name=${key}]`).val(value);
+            $(`#filter-form [name=${key}]`).val(value);
         });
 
         // on form submit, remove 'name' for all blank fields to prevent them from being sent in the request
-        document.getElementById('resume-filter-form').addEventListener('submit', e => {
+        document.getElementById('filter-form').addEventListener('submit', e => {
             $(e.target).find('[name]').each((_, inputElement) => {
                 if ($(inputElement).val() === "") {
                     $(inputElement).attr('name', '');
