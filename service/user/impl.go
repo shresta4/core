@@ -90,8 +90,6 @@ func (service *userImpl) validateUser(user *model.User) error {
 		return fmt.Errorf("invalid username: %s", user.Username)
 	}
 
-	// TODO: Implement further user data validate
-
 	return nil
 }
 
