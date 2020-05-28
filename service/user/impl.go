@@ -152,7 +152,7 @@ func (service *userImpl) getFilteredUsers(filterStrings map[string][]string) ([]
 
 	rows, err := service.db.NamedQuery(query, args)
 	if err != nil {
-		return nil, fmt.Errorf("failed to query database for resumes: %w", err)
+		return nil, fmt.Errorf("failed to query database for users: %w", err)
 	}
 
 	results := []model.User{}

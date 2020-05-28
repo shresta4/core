@@ -281,11 +281,11 @@ func (controller *SiteController) UserManager(ctx *context.Context) error {
 			model.User
 			HumanTimestamp string
 		}
-		model.UserOptions
+		MarkOptions    []string
 	}{
 		Authenticated: ctx.LoggedIn,
 		Users:         extendedUsers,
-		UserOptions: model.UserValidOptions,
+		MarkOptions:   model.UserValidMarks,
 	}
 
 	return ctx.Render(http.StatusOK, "usermanager", params)

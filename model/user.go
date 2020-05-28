@@ -17,11 +17,3 @@ const (
 var (
 	UserValidMarks = []string{UserMarkBasic, UserMarkPaid, UserMarkRecruiter}
 )
-
-type UserOptions struct {
-	Marks []string
-}
-
-var UserValidOptions = UserOptions{
-	Marks: []string{UserMarkBasic, UserMarkPaid, UserMarkRecruiter},
-}
