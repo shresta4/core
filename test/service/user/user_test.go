@@ -232,25 +232,25 @@ func TestCreateAndGetFilteredUsers(t *testing.T) {
 		CreatedAt: 10,
 	}
 
-	errUser1 := svc.CreateUser(expectedUser1)
-	if errUser1 != nil {
-		t.Fatal(errUser1)
+	err = svc.CreateUser(expectedUser1)
+	if err != nil {
+		t.Fatal(err)
 	}
 
-	errUser2 := svc.CreateUser(expectedUser2)
-	if errUser2 != nil {
-		t.Fatal(errUser2)
+	err = svc.CreateUser(expectedUser2)
+	if err != nil {
+		t.Fatal(err)
 	}
 
-	errChangeMark := svc.MarkUser(expectedUser2.Username, model.UserMarkPaid)
-	if errChangeMark != nil {
-		t.Fatal(errChangeMark)
+	err = svc.MarkUser(expectedUser2.Username, model.UserMarkPaid)
+	if err != nil {
+		t.Fatal(err)
 	}
 
 	t.Run("no filters", func(t *testing.T) {
 		filters := map[string][]string{}
-		users, err := svc.GetFilteredUsers(filters)
 
+		users, err := svc.GetFilteredUsers(filters)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -265,8 +265,8 @@ func TestCreateAndGetFilteredUsers(t *testing.T) {
 		filters := map[string][]string{
 			"mark": {model.UserMarkPaid},
 		}
-		users, err := svc.GetFilteredUsers(filters)
 
+		users, err := svc.GetFilteredUsers(filters)
 		if err != nil {
 			t.Fatal(err)
 		}
