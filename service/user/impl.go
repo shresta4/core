@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jmoiron/sqlx"
+
 	"github.com/acm-uiuc/core/database/querybuilder"
 	"github.com/acm-uiuc/core/model"
 )
@@ -40,7 +41,7 @@ func (service *userImpl) CreateUser(user model.User) error {
 }
 
 func (service *userImpl) GetUsers() ([]model.User, error) {
-	users, err := service.getFilteredUsers(map[string][]string{}) //service.getUsers()
+	users, err := service.getFilteredUsers(map[string][]string{}) 
 	if err != nil {
 		return nil, fmt.Errorf("failed to get infos: %w", err)
 	}
@@ -150,6 +151,9 @@ func (service *userImpl) getFilteredUsers(filterStrings map[string][]string) ([]
 	}
 
 	rows, err := service.db.NamedQuery(query, args)
+	if err != nil {
+		return nil, fmt.Errorf("failed to query database for resumes: %w", err)
+	}
 
 	results := []model.User{}
 	for rows.Next() {

@@ -1,6 +1,6 @@
 {{define "userfilterform"}}
 
-<form id="user-filter-form">
+<form id="resume-filter-form">
     <h4>
         Filter
         <a class="clear-form" href="?"><i class="fa fa-times-circle"></i> Clear</a>
@@ -12,6 +12,8 @@
             <option value='{{.}}'>{{.}}</option>
         {{end}}
     </select>
+
+    <input type="text" name="username" placeholder="Username">
 
     <button class="button" type="submit">Submit</button>
 </form>
