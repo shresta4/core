@@ -170,7 +170,7 @@ func New(svc *service.Service) (*Controller, error) {
 		"/hackillinois",
 		Chain(siteController.HackIllinois),
 	)
-
+	
 	controller.GET(
 		"/sponsors",
 		Chain(siteController.Sponsors),
